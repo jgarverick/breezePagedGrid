@@ -86,13 +86,13 @@
 
         //#region Observable Subscriptions
         self.pageNumber.subscribe(function (newValue) {
-            if (newValue > self.maxPages()) {
-                value = self.maxPages();
-            }
             self.refreshData();
         });
         self.itemsPerPage.subscribe(function (newValue) {
             self.refreshData();
+            if (self.pageNumber() > self.maxPages()) {
+                self.pageNumber(1);
+            }
         });
         //#endregion
     };
