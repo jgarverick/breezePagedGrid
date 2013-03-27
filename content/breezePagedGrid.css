@@ -1,0 +1,61 @@
+﻿/*  Formatted grid elements */
+ul.table >  li
+    {
+        display:table-row;
+    }
+ul.table > li > span
+{
+    display:table-cell;
+    padding:3px;
+}
+ul.table > li:hover
+{
+    background-color:White;
+    cursor:pointer;
+}
+ul.table > li.header > span
+{
+    font-weight:bold;
+    border-bottom:solid 1px black;
+}
+ul.table
+{
+    display:inline-table;
+    width:100%;
+    border:solid 1px black;
+    padding:5px;
+}
+
+/*  Pager elements */
+div.pagerShell
+{
+    font-size: small;
+    width:100%;
+    border:solid 1px black;
+    border-bottom:none;
+    padding:5px;
+    display:table;
+    margin-top:3px;
+}
+div.pagerShell > span, div.pagerShell > select, div.pagerShell > div
+{
+    display:table-cell;
+}
+.navButton
+{
+    padding:2px;
+    border:solid 1px #666666;
+    width:32px;
+    height:32px;
+}
+
+input[type="text"].pagerInput
+{
+    width:20px;
+    height:14px;
+}
+select.pagerInput
+{
+    width:75px;
+    font-size:small;
+}
