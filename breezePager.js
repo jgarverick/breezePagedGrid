@@ -121,4 +121,7 @@
         if (keyField) {
             self.KeyField(keyField);
         }
+        if (navLink) {
+            self.NavLink(navLink);
+        }
     }
