@@ -36,8 +36,8 @@
             self.DataPromise().then(self.Success).fail(self.Fail);
         };
 
-        self.AddColumn = function (header, field, controlType) {
-            self.Columns.push(new breezeGridColumn(header, field, controlType));
+        self.AddColumn = function (header, field, controlType, keyField, navLink) {
+            self.Columns.push(new breezeGridColumn(header, field, controlType, keyField, navLink));
         };
         //#endregion
 
@@ -47,6 +47,8 @@
             }
             self.Pager().pageNumber(1);
         };
+
+        
     }
     /******************************************************************************
     *   Model for the pager object
@@ -54,13 +56,13 @@
     function breezePager() {
     var self = this;
         self.recordCount= ko.observable(0);
-        self.itemsPerPage= ko.observable('25');
+        self.itemsPerPage = ko.observable('25');
         self.pageNumber = ko.observable(1);
         self.refreshData = function () {
         };
-        self.maxPages = function () {
+        self.maxPages = ko.computed(function () {
             return parseInt(self.recordCount() / parseInt(self.itemsPerPage())) + 1;
-        };
+        });
         self.skipItems= function () {
             return (self.pageNumber() - 1) * parseInt(self.itemsPerPage());
         };
@@ -99,11 +101,13 @@
     /******************************************************************************
     *   Model for the grid column(s)
     ******************************************************************************/
-    function breezeGridColumn(header, field, controlType) {
+    function breezeGridColumn(header, field, controlType, keyField, navLink) {
         var self = this;
         self.ColumnHeader = ko.observable('');
         self.FieldName = ko.observable('');
         self.DisplayControlType = ko.observable('cell');
+        self.KeyField = ko.observable('');
+        self.NavLink = ko.observable('');
 
         if (header) {
             self.ColumnHeader(header);
@@ -113,5 +117,11 @@
         }
         if (controlType) {
             self.DisplayControlType(controlType);
+        }
+        if (keyField) {
+            self.KeyField(keyField);
+        }
+        if (navLink) {
+            self.NavLink(navLink);
         }
     }

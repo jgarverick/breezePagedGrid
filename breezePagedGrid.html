@@ -46,3 +46,9 @@
 <script type="text/html" id="checkbox">
 <input type="checkbox" data-bind="checked: $parent.getProperty(FieldName())" />
 </script>
+<script type="text/html" id="date-cell">
+<span data-bind="text: moment($parent.getProperty(FieldName())).format('MM/DD/YYYY hh:mm')"></span>
+</script>
+<script type="text/html" id="id-nav-link">
+<span><a data-bind="text: $parent.getProperty(FieldName()), attr: { href: NavLink() + '/' + $parent.getProperty(KeyField()) }"></a></span>
+</script>
