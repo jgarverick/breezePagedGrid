@@ -3,6 +3,11 @@ breezePagedGrid
 
 A paging control that plays nice with BreezeJS, KnockoutJS and DurandalJS (think [SPA Template](http://www.johnpapa.net/spa)).
 
+License
+=======
+
+This software is licensed under the MIT license.
+
 Dependencies
 ============
 At a minimum, this grid requires:
@@ -10,7 +15,7 @@ At a minimum, this grid requires:
 * [KnockoutJS](http://knockoutjs.com/)
 * [BreezeJS](http://www.breezejs.com/)
 
-Also, you can use this with [DurandalJS](http://durandaljs.com/) but that's not a requirement.
+Also, you can use this with [DurandalJS](http://durandaljs.com/) but that's not a requirement desipte the lengthy directions about installing for Durandal shown below.
 
 Implementation
 ==============
