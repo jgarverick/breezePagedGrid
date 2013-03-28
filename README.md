@@ -3,11 +3,20 @@ breezePagedGrid
 
 A paging control that plays nice with BreezeJS, KnockoutJS and DurandalJS (think [SPA Template](http://www.johnpapa.net/spa)).
 
+Dependencies
+============
+At a minimum, this grid requires:
+* [jQuery](http://jquery.com)
+* [KnockoutJS](http://knockoutjs.com/)
+* [BreezeJS](http://www.breezejs.com/)
+
+Also, you can use this with [DurandalJS](http://durandaljs.com/) but that's not a requirement.
+
 Implementation
 ==============
 
 Implementation of the breezePagedGrid is fairly simple if using Durandal.  Under the App folder, you will want to place breezePager.js under the viewmodels folder, breezePagedGrid.html in the views folder, the breezePagedGrid.css where you keep your stylesheets,  and the contents of the Contents folder (heh) in the folder that has your images.
-Or, you can also check out the [Installation Notes](breezePager.install.md).
+Or, you can also check out the [Installation Notes](breezePager.install.md) for other options.
 
 Then, in any view that you wish to use the control in, simply add the following line of code:
 
