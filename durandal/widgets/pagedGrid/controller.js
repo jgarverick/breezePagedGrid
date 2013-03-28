@@ -1,6 +1,6 @@
 ﻿define(function (require) {
     var widget = require('durandal/widget');
-    var pagedGrid = require('./breezePager');
+    var pagedGrid = require('durandal/lib/breezePager');
 
     var ctor = function (element, settings) {
         this.settings = settings;
