@@ -7,7 +7,7 @@
         settings.grid = settings.grid || new breezePagedGrid();
         settings.grid.Init();
         $(settings.dataOptions.columns).each(function (idx, item) {
-            settings.grid.AddColumn(item.header, item.field, item.display, item.key, item.link);
+            settings.grid.AddColumn(item.header, item.field, item.control, item.key, item.link);
         });
 
         settings.grid.DataPromise = function () {
