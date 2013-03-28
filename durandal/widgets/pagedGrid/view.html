@@ -1,0 +1,55 @@
+﻿<div data-bind="with: settings.grid">
+    <div data-bind="with: Pager" class="pagerShell">
+        <span style="font-weight: bold;" data-bind="text: 'Total record(s): ' + recordCount()">
+        </span>Items per page:
+        <select data-bind="value: itemsPerPage" class="pagerInput">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+        <div style="float: right; vertical-align: middle;">
+            <button data-bind="click: firstPage" class="navButton">
+                <img title="First Page" src="content/images/glyphicons_free/glyphicons_171_fast_backward.png"
+                    width="16" height="16" /></button>
+            <button data-bind="click: previousPage" class="navButton">
+                <img title="Previous Page" src="content/images/glyphicons_free/glyphicons_172_rewind.png"
+                    width="14" height="14" /></button>
+            <div style="display: inline; padding-top: 0.2em;">
+                Page
+                <input type="text" data-bind="value: pageNumber" class="pagerInput" />
+                of <span data-bind="text: maxPages()"></span>
+            </div>
+            <button data-bind="click: nextPage" class="navButton">
+                <img title="Next Page" src="content/images/glyphicons_free/glyphicons_176_forward.png"
+                    width="14" height="14" /></button>
+            <button data-bind="click: lastPage" class="navButton">
+                <img title="Last Page" src="content/images/glyphicons_free/glyphicons_177_fast_forward.png"
+                    width="16" height="16" /></button>
+        </div>
+    </div>
+    <ul class="table">
+        <li class="header" data-bind="foreach: Columns, visible: Results().length > 0"><span data-bind="text: ColumnHeader">
+        </span></li>
+        <!-- ko foreach: Results -->
+        <li>
+            <!-- ko foreach: $parent.Columns -->
+                <!-- ko template: DisplayControlType --><!-- /ko -->
+            <!-- /ko -->
+        </li>
+        <!-- /ko -->
+        <li data-bind="visible: Results().length == 0" style="display:none;"><div style="width:100%;">No records found.</div></li>
+    </ul>
+</div>
+<script type="text/html" id="cell">
+<span data-bind="text: $parent.getProperty(FieldName())"></span>
+</script>
+<script type="text/html" id="checkbox">
+<input type="checkbox" data-bind="checked: $parent.getProperty(FieldName())" />
+</script>
+<script type="text/html" id="date-cell">
+<span data-bind="text: moment($parent.getProperty(FieldName())).format('MM/DD/YYYY hh:mm')"></span>
+</script>
+<script type="text/html" id="id-nav-link">
+<span><a data-bind="text: $parent.getProperty(FieldName()), attr: { href: NavLink() + '/' + $parent.getProperty(KeyField()) }"></a></span>
+</script>
