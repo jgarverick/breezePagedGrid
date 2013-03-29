@@ -2,7 +2,7 @@ breezePagedGrid
 ===============
 
 A paging control that plays nice with BreezeJS, KnockoutJS and DurandalJS (think [SPA Template](http://www.johnpapa.net/spa)).
-The Durandal widget is also available as a [NuGet package](https://nuget.org/packages/breezePagedGrid.widget/0.9).
+The Durandal widget is now available as a [NuGet package](https://nuget.org/packages/breezePagedGrid.widget/0.9).
 
 License
 =======
