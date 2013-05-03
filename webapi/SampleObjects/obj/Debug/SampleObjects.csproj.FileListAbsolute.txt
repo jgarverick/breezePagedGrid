@@ -1,0 +1,11 @@
+C:\Users\jgarverick\Documents\Visual Studio 2010\Projects\breezeGridExample\SampleObjects\bin\Debug\SampleObjects.dll.config
+C:\Users\jgarverick\Documents\Visual Studio 2010\Projects\breezeGridExample\SampleObjects\bin\Debug\SampleObjects.dll
+C:\Users\jgarverick\Documents\Visual Studio 2010\Projects\breezeGridExample\SampleObjects\bin\Debug\SampleObjects.pdb
+C:\Users\jgarverick\Documents\Visual Studio 2010\Projects\breezeGridExample\SampleObjects\bin\Debug\EntityFramework.dll
+C:\Users\jgarverick\Documents\Visual Studio 2010\Projects\breezeGridExample\SampleObjects\bin\Debug\EntityFramework.xml
+C:\Users\jgarverick\Documents\Visual Studio 2010\Projects\breezeGridExample\SampleObjects\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\jgarverick\Documents\Visual Studio 2010\Projects\breezeGridExample\SampleObjects\obj\Debug\SampleObjects.dll
+C:\Users\jgarverick\Documents\Visual Studio 2010\Projects\breezeGridExample\SampleObjects\obj\Debug\SampleObjects.pdb
+C:\Users\jgarverick\Documents\Visual Studio 2010\Projects\breezeGridExample\SampleObjects\obj\Debug\SampleObjects.Migrations.Initial.resources
+C:\Users\jgarverick\Documents\Visual Studio 2010\Projects\breezeGridExample\SampleObjects\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\jgarverick\Documents\Visual Studio 2010\Projects\breezeGridExample\SampleObjects\obj\Debug\GenerateResource.write.1.tlog

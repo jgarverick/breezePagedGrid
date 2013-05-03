@@ -1,0 +1,745 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4D7B7037-4A94-4FE7-BB2A-027FE29D2BC3}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>breezeGridExample</RootNamespace>
+    <AssemblyName>breezeGridExample</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Breeze.WebApi">
+      <HintPath>..\packages\Breeze.WebApi.1.3.2\lib\Breeze.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Irony">
+      <HintPath>..\packages\Breeze.WebApi.1.3.2\lib\Irony.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.2.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData">
+      <HintPath>..\packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <HintPath>..\..\..\..\..\..\..\Windows\Microsoft.NET\Framework\v4.0.30319\System.ComponentModel.DataAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Spatial">
+      <HintPath>..\packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http.OData">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.4.0.1\lib\net40\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BreezeWebApiConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ContextController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\breezePagedGrid.css" />
+    <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_000_glass.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_001_leaf.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_002_dog.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_003_user.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_004_girl.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_005_car.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_006_user_add.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_007_user_remove.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_008_film.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_009_magic.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_010_envelope.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_011_camera.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_012_heart.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_013_beach_umbrella.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_014_train.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_015_print.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_016_bin.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_017_music.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_018_note.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_019_heart_empty.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_020_home.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_021_snowflake.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_022_fire.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_023_magnet.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_024_parents.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_025_binoculars.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_026_road.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_027_search.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_028_cars.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_029_notes_2.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_030_pencil.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_031_bus.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_032_wifi_alt.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_033_luggage.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_034_old_man.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_035_woman.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_036_file.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_037_coins.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_038_airplane.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_039_notes.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_040_stats.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_041_charts.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_042_pie_chart.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_043_group.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_044_keys.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_045_calendar.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_046_router.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_047_camera_small.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_048_dislikes.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_049_star.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_050_link.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_051_eye_open.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_052_eye_close.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_053_alarm.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_054_clock.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_055_stopwatch.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_056_projector.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_057_history.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_058_truck.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_059_cargo.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_060_compass.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_061_keynote.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_062_paperclip.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_063_power.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_064_lightbulb.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_065_tag.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_066_tags.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_067_cleaning.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_068_ruller.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_069_gift.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_070_umbrella.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_071_book.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_072_bookmark.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_073_wifi.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_074_cup.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_075_stroller.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_076_headphones.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_077_headset.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_078_warning_sign.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_079_signal.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_080_retweet.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_081_refresh.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_082_roundabout.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_083_random.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_084_heat.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_085_repeat.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_086_display.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_087_log_book.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_088_adress_book.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_089_building.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_090_eyedropper.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_091_adjust.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_092_tint.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_093_crop.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_094_vector_path_square.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_095_vector_path_circle.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_096_vector_path_polygon.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_097_vector_path_line.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_098_vector_path_curve.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_099_vector_path_all.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_100_font.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_101_italic.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_102_bold.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_103_text_underline.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_104_text_strike.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_105_text_height.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_106_text_width.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_107_text_resize.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_108_left_indent.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_109_right_indent.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_110_align_left.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_111_align_center.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_112_align_right.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_113_justify.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_114_list.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_115_text_smaller.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_116_text_bigger.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_117_embed.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_118_embed_close.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_119_table.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_120_message_full.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_121_message_empty.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_122_message_in.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_123_message_out.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_124_message_plus.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_125_message_minus.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_126_message_ban.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_127_message_flag.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_128_message_lock.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_129_message_new.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_130_inbox.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_131_inbox_plus.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_132_inbox_minus.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_133_inbox_lock.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_134_inbox_in.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_135_inbox_out.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_136_cogwheel.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_137_cogwheels.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_138_picture.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_139_adjust_alt.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_140_database_lock.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_141_database_plus.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_142_database_minus.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_143_database_ban.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_144_folder_open.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_145_folder_plus.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_146_folder_minus.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_147_folder_lock.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_148_folder_flag.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_149_folder_new.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_150_edit.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_151_new_window.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_152_check.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_153_unchecked.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_154_more_windows.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_155_show_big_thumbnails.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_156_show_thumbnails.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_157_show_thumbnails_with_lines.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_158_show_lines.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_159_playlist.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_160_imac.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_161_macbook.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_162_ipad.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_163_iphone.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_164_iphone_transfer.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_165_iphone_exchange.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_166_ipod.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_167_ipod_shuffle.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_168_ear_plugs.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_169_phone.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_170_step_backward.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_171_fast_backward.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_172_rewind.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_173_play.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_174_pause.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_175_stop.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_176_forward.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_177_fast_forward.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_178_step_forward.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_179_eject.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_180_facetime_video.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_181_download_alt.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_182_mute.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_183_volume_down.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_184_volume_up.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_185_screenshot.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_186_move.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_187_more.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_188_brightness_reduce.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_189_brightness_increase.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_190_circle_plus.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_191_circle_minus.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_192_circle_remove.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_193_circle_ok.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_194_circle_question_mark.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_195_circle_info.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_196_circle_exclamation_mark.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_197_remove.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_198_ok.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_199_ban.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_200_download.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_201_upload.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_202_shopping_cart.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_203_lock.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_204_unlock.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_205_electricity.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_206_ok_2.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_207_remove_2.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_208_cart_out.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_209_cart_in.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_210_left_arrow.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_211_right_arrow.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_212_down_arrow.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_213_up_arrow.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_214_resize_small.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_215_resize_full.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_216_circle_arrow_left.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_217_circle_arrow_right.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_218_circle_arrow_top.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_219_circle_arrow_down.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_220_play_button.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_221_unshare.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_222_share.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_223_chevron-right.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_224_chevron-left.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_225_bluetooth.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_226_euro.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_227_usd.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_228_gbp.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_229_retweet_2.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_230_moon.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_231_sun.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_232_cloud.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_233_direction.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_234_brush.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_235_pen.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_236_zoom_in.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_237_zoom_out.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_238_pin.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_239_albums.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_240_rotation_lock.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_241_flash.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_242_google_maps.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_243_anchor.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_244_conversation.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_245_chat.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_246_male.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_247_female.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_248_asterisk.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_249_divide.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_250_snorkel_diving.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_251_scuba_diving.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_252_oxygen_bottle.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_253_fins.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_254_fishes.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_255_boat.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_256_delete.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_257_sheriffs_star.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_258_qrcode.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_259_barcode.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_260_pool.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_261_buoy.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_262_spade.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_263_bank.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_264_vcard.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_265_electrical_plug.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_266_flag.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_267_credit_card.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_268_keyboard_wireless.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_269_keyboard_wired.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_270_shield.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_271_ring.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_272_cake.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_273_drink.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_274_beer.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_275_fast_food.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_276_cutlery.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_277_pizza.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_278_birthday_cake.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_279_tablet.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_280_settings.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_281_bullets.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_282_cardio.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_283_t-shirt.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_284_pants.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_285_sweater.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_286_fabric.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_287_leather.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_288_scissors.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_289_bomb.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_290_skull.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_291_celebration.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_292_tea_kettle.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_293_french_press.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_294_coffe_cup.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_295_pot.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_296_grater.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_297_kettle.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_298_hospital.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_299_hospital_h.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_300_microphone.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_301_webcam.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_302_temple_christianity_church.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_303_temple_islam.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_304_temple_hindu.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_305_temple_buddhist.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_306_bicycle.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_307_life_preserver.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_308_share_alt.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_309_comments.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_310_flower.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_311_baseball.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_312_rugby.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_313_ax.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_314_table_tennis.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_315_bowling.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_316_tree_conifer.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_317_tree_deciduous.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_318_more_items.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_319_sort.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_320_filter.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_321_gamepad.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_322_playing_dices.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_323_calculator.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_324_tie.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_325_wallet.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_326_piano.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_327_sampler.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_328_podium.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_329_soccer_ball.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_330_blog.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_331_dashboard.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_332_certificate.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_333_bell.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_334_candle.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_335_pushpin.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_336_iphone_shake.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_337_pin_flag.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_338_turtle.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_339_rabbit.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_340_globe.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_341_briefcase.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_342_hdd.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_343_thumbs_up.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_344_thumbs_down.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_345_hand_right.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_346_hand_left.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_347_hand_up.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_348_hand_down.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_349_fullscreen.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_350_shopping_bag.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_351_book_open.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_352_nameplate.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_353_nameplate_alt.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_354_vases.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_355_bullhorn.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_356_dumbbell.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_357_suitcase.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_358_file_import.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_359_file_export.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_360_bug.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_361_crown.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_362_smoking.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_363_cloud_upload.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_364_cloud_download.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_365_restart.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_366_security_camera.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_367_expand.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_368_collapse.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_369_collapse_top.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_370_globe_af.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_371_global.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_372_spray.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_373_nails.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_374_claw_hammer.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_375_classic_hammer.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_376_hand_saw.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_377_riflescope.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_378_electrical_socket_eu.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_379_electrical_socket_us.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_380_pinterest.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_381_dropbox.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_382_google_plus.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_383_jolicloud.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_384_yahoo.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_385_blogger.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_386_picasa.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_387_amazon.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_388_tumblr.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_389_wordpress.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_390_instapaper.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_391_evernote.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_392_xing.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_393_zootool.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_394_dribbble.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_395_deviantart.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_396_read_it_later.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_397_linked_in.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_398_forrst.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_399_pinboard.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_400_behance.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_401_github.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_402_youtube.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_403_skitch.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_404_4square.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_405_quora.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_406_badoo.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_407_spotify.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_408_stumbleupon.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_409_readability.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_410_facebook.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_411_twitter.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_412_instagram.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_413_posterous_spaces.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_414_vimeo.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_415_flickr.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_416_last_fm.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_417_rss.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_418_skype.png" />
+    <Content Include="Content\images\glyphicons_free\glyphicons_419_e-mail.png" />
+    <Content Include="Content\images\icon.png" />
+    <Content Include="Content\images\logo-new.png" />
+    <Content Include="Content\images\logo-single.png" />
+    <Content Include="Content\images\logo-single32.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\spinner-lg.gif" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\breeze.debug.js" />
+    <Content Include="Scripts\breeze.intellisense.js" />
+    <Content Include="Scripts\breeze.min.js" />
+    <Content Include="Scripts\breezePager.js" />
+    <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.2.1.debug.js" />
+    <Content Include="Scripts\knockout-2.2.1.js" />
+    <Content Include="Scripts\knockout.mapping-latest.debug.js" />
+    <Content Include="Scripts\knockout.mapping-latest.js" />
+    <Content Include="Scripts\knockout.validation.debug.js" />
+    <Content Include="Scripts\knockout.validation.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\q.js" />
+    <Content Include="Scripts\q.min.js" />
+    <None Include="Views\Shared\breezePagedGrid.cshtml" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SampleObjects\SampleObjects.csproj">
+      <Project>{8CC070AE-D9C3-4F6B-AC63-3195C9FC6714}</Project>
+      <Name>SampleObjects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2808</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
