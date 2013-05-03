@@ -19,7 +19,7 @@
         vm.breezePagedGrid.AddColumn("Display Name", "DisplayName");
         vm.breezePagedGrid.AddColumn("User Name", "UserName");
         vm.breezePagedGrid.AddColumn("Active", "IsActive");
-        vm.breezePagedGrid.DataPromise = function () { return vm.manager.executeQuery(query); };
+        vm.breezePagedGrid.DataPromise = function () { return vm.manager.executeQuery(query.skip(vm.breezePagedGrid.Pager().skipItems()).take(parseInt(vm.breezePagedGrid.Pager().itemsPerPage()))); };
         vm.breezePagedGrid.GetData();
     });
 </script>
