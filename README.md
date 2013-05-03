@@ -2,6 +2,7 @@ breezePagedGrid
 ===============
 
 A paging control that plays nice with BreezeJS, KnockoutJS and DurandalJS (think [SPA Template](http://www.johnpapa.net/spa)).
+The Durandal widget is now available as a [NuGet package](https://nuget.org/packages/breezePagedGrid.widget/0.9).
 
 License
 =======
@@ -105,3 +106,5 @@ You will also want to make sure that any predicates that rely on values being pa
   vm.dataManager.query = vm.dataManager.query.where("Id", "==", vm.Id());
 ```
 The controller file in the widget will handle wiring up the `inlineCount` and associations to the skip and take properties on the Pager.  It's important to note that I am using an init function on the viewmodel to help determine whether or not the columns array needs to be cleaned out.  With caching and what-not, I was running into issues with the grid populating the columns multiple times when navigating to a different page, then using the Back button on the browser to nav back to the grid.
+
+[![endorse](https://api.coderwall.com/jgarverick/endorsecount.png)](https://coderwall.com/jgarverick)
