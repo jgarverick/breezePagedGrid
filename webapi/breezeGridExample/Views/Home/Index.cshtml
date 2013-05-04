@@ -7,19 +7,19 @@
 <script>
     $(document).ready(function () {
         var vm = {
-            breezePagedGrid: new breezePagedGrid(),
-            manager: new breeze.EntityManager("breeze/Context")
+            breezePagedGrid: new breezePagedGrid("breeze/Context", "Users")
+            //manager: new breeze.EntityManager("breeze/Context")
         };
-        var query = new breeze.EntityQuery().from("Users").orderBy("UserName").inlineCount(true);
+       // var query = new breeze.EntityQuery().from("Users").orderBy("UserName").inlineCount(true);
 
         ko.applyBindings(vm);
 
-        vm.breezePagedGrid.Init();
         vm.breezePagedGrid.AddColumn("User ID", "UserId");
         vm.breezePagedGrid.AddColumn("Display Name", "DisplayName");
         vm.breezePagedGrid.AddColumn("User Name", "UserName");
         vm.breezePagedGrid.AddColumn("Active", "IsActive");
-        vm.breezePagedGrid.DataPromise = function () { return vm.manager.executeQuery(query.skip(vm.breezePagedGrid.Pager().skipItems()).take(parseInt(vm.breezePagedGrid.Pager().itemsPerPage()))); };
+        // vm.breezePagedGrid.Query = new breeze.EntityQuery().from("Users").orderBy("UserName").inlineCount(true);
+        //vm.breezePagedGrid.DataPromise("Users");
         vm.breezePagedGrid.GetData();
     });
 </script>
