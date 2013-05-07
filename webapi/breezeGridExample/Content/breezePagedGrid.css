@@ -27,15 +27,26 @@ ul.table
 }
 
 /*  Pager elements */
-div.pagerShell
+div.pagerShell, ul.pagerShell
 {
     font-size: small;
     width:100%;
     border:solid 1px black;
     border-bottom:none;
     padding:5px;
-    display:table;
+    padding-bottom:0px;
     margin-top:3px;
+}
+
+div.pagerShell
+{
+        display:table;
+}
+ul.pagerShell > li
+{
+    vertical-align:middle;
+    padding:3px;
+    margin:3px;
 }
 div.pagerShell > span, div.pagerShell > select, div.pagerShell > div
 {
@@ -47,6 +58,34 @@ div.pagerShell > span, div.pagerShell > select, div.pagerShell > div
     border:solid 1px #666666;
     width:32px;
     height:32px;
+    background-repeat:no-repeat;
+    background-position:center;
+    vertical-align:middle;
+}
+button.firstPage
+{
+    background-image:url(/content/images/glyphicons_free/glyphicons_171_fast_backward.png); 
+}
+
+button.lastPage
+{
+    background-image:url(/content/images/glyphicons_free/glyphicons_177_fast_forward.png);
+}
+
+button.previousPage
+{
+    background-image:url(/content/images/glyphicons_free/glyphicons_172_rewind.png);
+}
+
+button.nextPage
+{
+    background-image:url(/content/images/glyphicons_free/glyphicons_176_forward.png);
+
+}
+
+button.search
+{
+    background-image:url(/content/images/glyphicons_free/glyphicons_027_search.png);
 }
 
 input[type="text"].pagerInput
@@ -59,3 +98,4 @@ select.pagerInput
     width:75px;
     font-size:small;
 }
+

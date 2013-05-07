@@ -7,19 +7,22 @@
 <script>
     $(document).ready(function () {
         var vm = {
-            breezePagedGrid: new breezePagedGrid("breeze/Context", "Users")
-            //manager: new breeze.EntityManager("breeze/Context")
+            breezePagedGrid: new breezePagedGrid({
+            contextUrl: 'breeze/Context',
+            entitySet: 'Users',
+            showSearch: true
+            }),
+            
         };
-       // var query = new breeze.EntityQuery().from("Users").orderBy("UserName").inlineCount(true);
+        var query = new breeze.EntityQuery().from("Users").orderBy("UserName").inlineCount(true);
 
         ko.applyBindings(vm);
 
-        vm.breezePagedGrid.AddColumn("User ID", "UserId");
-        vm.breezePagedGrid.AddColumn("Display Name", "DisplayName");
-        vm.breezePagedGrid.AddColumn("User Name", "UserName");
-        vm.breezePagedGrid.AddColumn("Active", "IsActive");
-        // vm.breezePagedGrid.Query = new breeze.EntityQuery().from("Users").orderBy("UserName").inlineCount(true);
-        //vm.breezePagedGrid.DataPromise("Users");
+        vm.breezePagedGrid.Init();
+        vm.breezePagedGrid.AddColumn({ header: "User ID", field: "UserId"});
+        vm.breezePagedGrid.AddColumn({ header: "Display Name", field: "DisplayName", canSearch: true});
+        vm.breezePagedGrid.AddColumn({header: "User Name", field: "UserName", canSearch: true});
+        vm.breezePagedGrid.AddColumn({header: "Active", field: "IsActive"});
         vm.breezePagedGrid.GetData();
     });
 </script>

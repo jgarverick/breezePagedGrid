@@ -14,27 +14,22 @@ namespace SampleObjects.Migrations
 
         protected override void Seed(SampleObjects.UserDbContext context)
         {
-            // This is totally for the benefit of this example only
-            if (context.Users.Count() < 100)
+            if (context.Users.Count() == 0)
             {
-                for (int i = 0; i < 50; i++)
+                context.Users.Add(new User()
                 {
-                    context.Users.Add(new User()
-                                        {
-                                            DisplayName = "John Smith",
-                                            IsActive = true,
-                                            UserName = "Schmitty"
+                    DisplayName = "John Smith",
+                    IsActive = true,
+                    UserName = "Schmitty"
 
-                                        });
-                    context.Users.Add(new User()
-                    {
-                        DisplayName = "Jane Smith",
-                        IsActive = true,
-                        UserName = "Schmittens"
+                });
+                context.Users.Add(new User()
+                {
+                    DisplayName = "Jane Smith",
+                    IsActive = true,
+                    UserName = "Schmittens"
 
-                    });
-                }
-
+                });
 
             }
         }
